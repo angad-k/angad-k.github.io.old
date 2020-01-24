@@ -138,9 +138,11 @@ html {
     background-color: #ffffff;
     align-items: center;
     align-content: center;
+    flex-wrap: nowrap;
 }
 .icons
 {
     flex-grow: 1;
+    background-color: #ffffff;
 
 }
