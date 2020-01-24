@@ -9,6 +9,15 @@
 
     
 }
+.largerCircle
+{
+    width: 30%;
+    height: 0;
+    padding-bottom: 30%;
+    border-radius: 100%;
+    background-color: #d630ce;
+    position: absolute;
+}
 .smallCircle
 {
     width: 5%;
@@ -60,6 +69,26 @@
     z-index: 10;
     left: 58%;
     background-color: #2ae97a; 
+}
+#fifth
+{
+    left: 5%;
+    animation: bobble 8s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    background-color: #f39658; 
+    opacity: 0.5;
+}
+#sixth
+{
+    animation: move2 35s;
+    animation-delay: -17.5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    z-index: 10;
+    left: 10%;
+    background-color: #e9d41b;
 }
 
 
@@ -154,6 +183,22 @@
         transform: scale(1);
         opacity: 0;        
         top: 80%;
+    }
+}
+
+@keyframes bobble
+{
+    0%
+    {
+        top: 10%;
+    }
+    50%
+    {
+        top: 20%;
+    }
+    100%
+    {
+        top: 10%;
     }
 }
 
