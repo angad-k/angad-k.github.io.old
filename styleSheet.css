@@ -14,6 +14,14 @@ html {
     
     left: 10%;
 }
+@media only screen and (orientation: portrait)
+{
+    .down
+    {
+        position: absolute;
+        top: 200%;
+    }
+}
 .down
 {
     
@@ -22,15 +30,6 @@ html {
     text-align: center;
     width: 100%;
     
-}
-
-@media only screen and (orientation: portrait)
-{
-    .down
-    {
-        position: absolute;
-        top: 200%;
-    }
 }
 
 #decoration_remover
@@ -130,15 +129,19 @@ html {
     color: black;
     z-index: 50;
     padding-bottom: 10px;
-
-
 }
-@media only screen and (max-width: 786px)
+.contactme
 {
-    .parent
-    {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 7vh;
+    background-color: #ffffff;
+    align-items: center;
+    align-content: center;
+}
+.icons
+{
+    flex-grow: 1;
+
 }
