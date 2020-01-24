@@ -133,8 +133,6 @@ html {
 .contactme
 {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     height: 7vh;
     background-color: #ffffff;
     align-items: center;
