@@ -148,11 +148,14 @@ html {
         height: 90%;
 
     }
+    .contactme
+    {
+        height: 7%;
+    }
 }
 .contactme
 {
     display: flex;
-    height: 7%;
     width: 100%;
     background-color: #ffffff;
     align-items: center;
