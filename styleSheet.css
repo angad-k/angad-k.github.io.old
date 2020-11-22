@@ -121,7 +121,9 @@ html {
 .text-encapsulator
 {
     width: 100%; 
-    display: block; 
+    height: 100%;
+    display: flex;
+    align-items: center;
     text-align: left;
     color: white;
     text-decoration: none;
