@@ -73,62 +73,63 @@ html {
 }
 .parent
 {
-    display: flex;
-    flex-wrap: wrap;    
+    display: flex;  
     margin: 20px;
-    width: 90%;
-    margin-left: 5%;
+    width: 80%;
+    margin-left: 10%;
     align-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .child
 {
+    padding: 20px;
     margin: 10px;   
-    background-color: #ffffff;
+    width: 100%;
+    background-color: #000000;
     flex-grow: 1;
-    position: relative;
-    flex-basis: 600px;   
+    position: relative;   
     border: #ffffff;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    color: #ffffff;
+    justify-content: space-between;
+    align-content: center;
+}
+.cardText
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 3.5vh;
+    color: #ffffff;
+    z-index: 50;
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: left;
+}
+.cardImage
+{
+    width: 100px;
+    text-align: right;
 }
 .child:hover
 {
     transition-duration: 0.3s;
-    background-color: #b3b3b3;
+    background-color: #272727;
 }
-#iitr
+.text-encapsulator
 {
-    flex-basis: 600px;  
-}
-#sds
-{
-    flex-basis: 180px;
-}
-#endgem
-{
-    align-content: center;
-}
-#mumbai
-{
-    flex-basis:  100%;
+    width: 100%; 
+    display: block; 
+    text-align: left;
+    color: white;
+    text-decoration: none;
 }
 .placeholder
 {
     height: 80%;
 
-}
-.cardText
-{
-    
-    text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 3.5vh;
-    color: black;
-    z-index: 50;
-    padding-bottom: 10px;
 }
 .contactme
 {
