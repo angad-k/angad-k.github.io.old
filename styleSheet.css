@@ -59,7 +59,7 @@ html {
     top: 100%;
     width: 100%;
     left: 0%;
-    background-color: #15131f;
+    background-color: #8d7fd6;
     z-index: 1;
 }
 .infoBanner
@@ -132,7 +132,7 @@ html {
 {
     .text-encapsulator
     {
-        font-size: 30px;
+        font-size: 40px;
     }
     .cardImage
     {
