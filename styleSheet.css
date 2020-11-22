@@ -128,15 +128,31 @@ html {
     color: white;
     text-decoration: none;
 }
-.placeholder
+@media only screen and (orientation: portrait)
 {
-    height: 80%;
+    .text-encapsulator
+    {
+        font-size: 30px;
+    }
+    .cardImage
+    {
+        width: 120px;
+    }
+    .contactme
+    {
+        position: absolute;
+        bottom: 0;
+    }
+    .parent
+    {
+        height: 90%;
 
+    }
 }
 .contactme
 {
     display: flex;
-    height: 7vh;
+    height: 7%;
     width: 100%;
     background-color: #ffffff;
     align-items: center;
@@ -148,4 +164,8 @@ html {
     flex-grow: 1;
     background-color: #ffffff;
 
+}
+.rest
+{
+    height: 100%;
 }
