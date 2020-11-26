@@ -26,7 +26,7 @@ html {
 {
     
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 94px;
+    font-size: 50px;
     text-align: center;
     width: 100%;
     
@@ -49,9 +49,11 @@ html {
 }
 .topPart
 {
-    background-color: #ffffff;
     height: 100%;
-    z-index: 1;
+    width: 100%;
+    z-index: -2;
+    display: block;
+    background-color: #ffffff;
 }
 .rest
 {
@@ -59,7 +61,8 @@ html {
     top: 100%;
     width: 100%;
     left: 0%;
-    background-color: #8d7fd6;
+    background-color: #14213D;
+    background-color: #14213D;
     z-index: 1;
     display: flex;
     justify-content: space-between;
@@ -90,7 +93,7 @@ html {
     padding: 20px;
     margin: 10px;   
     width: 100%;
-    background-color: #000000;
+    background-color: #FCA311;
     flex-grow: 1;
     position: relative;   
     border: #ffffff;
@@ -98,6 +101,7 @@ html {
     display: flex;
     flex-direction: row;
     color: #ffffff;
+    font-family: 'IBM Plex Sans', sans-serif;
     justify-content: space-between;
     align-content: center;
 }
@@ -130,6 +134,7 @@ html {
     text-align: left;
     color: white;
     text-decoration: none;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 @media only screen and (orientation: portrait)
 {
