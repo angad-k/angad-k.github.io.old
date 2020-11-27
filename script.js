@@ -10,7 +10,7 @@ function setupCanvas(){
     is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     //this background will be selected only on desktop and that too with a probability of 0.5
-    if( category > 0.5 && !(is_mobile))
+    if( category > 0.5)
     {
 
         //this removes the floating orb thingies
