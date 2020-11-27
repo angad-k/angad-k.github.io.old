@@ -1,11 +1,16 @@
-var node_list, adj_matrix, size_h_global, size_w_global;
+var node_list, adj_matrix, size_h_global, size_w_global, height_top_bound, height_bottom_bound;
 function setupCanvas(){   
 
     //this will be used to randomly select one of the (two?) cover designs.
     var category = Math.random();
     
+    height_top_bound = window.innerHeight/3.0;
+    height_bottom_bound = window.innerHeight*2.0/3.0
+
+    is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     //this background will be selected only on desktop and that too with a probability of 0.5
-    if( category > 0.5 && !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)))
+    if( category > 0.5 && !(is_mobile))
     {
 
         //this removes the floating orb thingies
@@ -20,27 +25,31 @@ function setupCanvas(){
         var c = document.createElement('canvas'),        
         ctx = c.getContext('2d'),
         size_h = c.height = window.innerHeight;
+        if(is_mobile)
+        {
+            size_h = c.height = window.innerHeight/3.0;
+        }
         size_w = c.width = window.innerWidth;
         size_h_global = size_h;
         size_w_global = size_w_global;
         //grid variables
         var x_increment = 60.0;
         var y_increment = 50.0;
-
+        if(is_mobile)
+        {
+            x_increment = 90;
+            y_increment = 90;
+        }
         //random initialization of nodes.
         var nodes = [];
+        new_node = new node(25, 0);
+        nodes.push(new_node);
+        var prob = 0.18;
         for(var x = 25; x < size_w - 25; x += x_increment)
         {
-            for(var y = size_h/3; y < size_h * 2 / 3 - 25.0; y += y_increment)
+            for(var y = height_top_bound; y < height_bottom_bound - 25.0; y += y_increment)
             {
-
-                var prob = 0.18;
-                //increasing probablity towards the end so that probability of asymmetric graph reduces.
-                if(x > size_w * 7 / 10 - 25 || x < size_w * 3 / 10 + 25)
-                {
-                    prob = 0.8;
-                }
-                if(Math.random() < 0.18)
+                if(Math.random() < prob)
                 {
                     new_node = new node(x, y);
                     nodes.push(new_node);
@@ -48,6 +57,8 @@ function setupCanvas(){
                 
             }
         }
+        new_node = new node(size_w - 25, 0);
+        nodes.push(new_node);
 
         //setup of the directed adjacency matrix
         var adj = new Array(nodes.length);
