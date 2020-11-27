@@ -4,7 +4,8 @@ function setupCanvas(){
     //this will be used to randomly select one of the (two?) cover designs.
     var category = Math.random();
     
-    if( category > 0.5 && !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) // condition shall go here
+    //this background will be selected only on desktop and that too with a probability of 0.5
+    if( category > 0.5 && !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)))
     {
 
         //this removes the floating orb thingies
@@ -34,6 +35,7 @@ function setupCanvas(){
             {
 
                 var prob = 0.18;
+                //increasing probablity towards the end so that probability of asymmetric graph reduces.
                 if(x > size_w * 7 / 10 - 25 || x < size_w * 3 / 10 + 25)
                 {
                     prob = 0.8;
@@ -61,12 +63,14 @@ function setupCanvas(){
                     count++;
                 }
             }
+            //this is to ensure graph remains connected
             if(count == 0)
             {
                 var j = Math.floor((Math.random()*4 + 1));
                 j_array[i + j] = 1;
                 count++;
             }
+            //last vertex will be connected to second last one
             if(i == nodes.length - 2)
             {
                 j_array[nodes.length - 1] = 1;
@@ -74,13 +78,13 @@ function setupCanvas(){
             adj[i] = j_array;
         }
         adj[nodes.length - 1] = [];
+
+        //making these global
         node_list = nodes;
         adj_matrix = adj;
         
+        //main animation loop
         make_frame(ctx, c);
-
-        //this will set the bg for the cover
-        document.body.style.background = 'url(' + c.toDataURL() + ')'; 
     }
     
 }
@@ -89,29 +93,34 @@ class node
 {
     constructor(x, y)
     {
+        //setting point's coordinates
         this.x = x;
         this.y = size_h_global/2.0;
+
+        //setting point's velocity
         this.dy = Math.random()*4 + 0.5;
         if(Math.random() > 0.5)
         {
             this.dy = -this.dy;
         }
-        this.y = size_h_global/2.0 + this.dy;
+        //offseting it a little
+        this.y += this.dy;
         this.x += Math.random()*10 - Math.random()*10;
     }
 }
 
+//this will plot a line
 function plot_node(node, ctx)
 {
     ctx.beginPath();
     //ctx.fillStyle = "#003d66";
     ctx.fillStyle = "rgba(23, 87, 171, 0.9)";
     ctx.arc(node.x, node.y, 2.5, 0, 2 * Math.PI);
-    
     ctx.stroke();
     ctx.fill();
 }
 
+//this will plot a line between two nodes
 function plot_line(node1, node2, ctx)
 {
     ctx.beginPath();
@@ -121,6 +130,7 @@ function plot_line(node1, node2, ctx)
     ctx.stroke();
 }
 
+//this will move the node and reverse velocity based on its position
 function update_node(node, ctx)
 {
     node.y += node.dy;
@@ -142,12 +152,15 @@ function make_frame(ctx, c)
     {
         //ctx.clearRect(0, 0, c.width, c.height);
         ctx.fillStyle = "rgba(255, 255, 255, 1)";
-        ctx.fillRect(0, 0, c.width, c.height);         
+        ctx.fillRect(0, 0, c.width, c.height);  
+        
+        //this shall move all the nodes
         for(var i = 0; i < node_list.length; i++)
         {
             update_node(node_list[i]);
         }
 
+        //this will plot all the nodes and edges
         for(var i = 0; i < node_list.length; i++)
         {
             plot_node(node_list[i], ctx);
@@ -160,12 +173,13 @@ function make_frame(ctx, c)
                 }  
             }
         }
+        //this will set the new frame
         document.body.style.background = 'url(' + c.toDataURL() + ')'; 
+
+        //don't call it a c̶o̶m̶e̶b̶a̶c̶k̶  callback
         requestAnimationFrame(animate);
     };
 
+    //start loop
     animate();
-
-    //this will set the bg for the cover
-    document.body.style.background = 'url(' + c.toDataURL() + ')'; 
 }
