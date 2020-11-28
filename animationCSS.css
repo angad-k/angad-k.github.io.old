@@ -4,7 +4,7 @@
     height: 0;
     padding-bottom: 20%;
     border-radius: 100%;
-    background-color: #d630ce;
+    background-color: #f72585;
     position: absolute;
 
     
@@ -45,7 +45,7 @@
     animation-fill-mode: backwards;
     animation-timing-function: linear;
     z-index: 10;
-    background-color: #9930d6;
+    background-color: #4cc9f0;
     left: 80%;
 }
 #third
@@ -57,7 +57,7 @@
     animation-timing-function: linear;
     z-index: 10;
     left: 55%;
-    background-color: #36a3eb;
+    background-color: #3a0ca3;
 }
 #fourth
 {
@@ -68,7 +68,7 @@
     animation-timing-function: linear;
     z-index: 10;
     left: 58%;
-    background-color: #2ae97a; 
+    background-color: #7209b7; 
 }
 #fifth
 {
@@ -76,7 +76,7 @@
     animation: bobble 8s;
     animation-iteration-count: infinite;
     animation-fill-mode: backwards;
-    background-color: #f39658; 
+    background-color: #b5179e; 
     opacity: 0.5;
 }
 #sixth
@@ -88,7 +88,7 @@
     animation-timing-function: linear;
     z-index: 10;
     left: 10%;
-    background-color: #e9d41b;
+    background-color: #00296b;
 }
 
 
