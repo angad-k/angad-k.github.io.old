@@ -10,17 +10,8 @@ function setupCanvas(){
     is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     //this background will be selected only on desktop and that too with a probability of 0.5
-    if( category > 0.5)
+    if(category > 0.5)
     {
-
-        //this removes the floating orb thingies
-        document.getElementById("first").remove();
-        document.getElementById("second").remove();
-        document.getElementById("third").remove();
-        document.getElementById("fourth").remove();
-        document.getElementById("fifth").remove();
-        document.getElementById("sixth").remove();
-
         //canvas setup
         var c = document.createElement('canvas'),        
         ctx = c.getContext('2d'),
@@ -97,29 +88,20 @@ function setupCanvas(){
         //main animation loop
         make_frame(ctx, c);
     }
-    /* new des
-    if(false)
+    
+    if(category <= 0.5)
     {
-        //this removes the floating orb thingies
-        document.getElementById("first").remove();
-        document.getElementById("second").remove();
-        document.getElementById("third").remove();
-        document.getElementById("fourth").remove();
-        document.getElementById("fifth").remove();
-        document.getElementById("sixth").remove();
-
-        //canvas setup
-        var c = document.createElement('canvas'),        
-        ctx = c.getContext('2d'),
-        size_h = c.height = window.innerHeight;
-        if(is_mobile)
+        var class_array = ["largeCircle", "smallCircle", "smallCircle", "largeCircle", "largerCircle", "smallCircle"];
+        var id_array = ["first", "second", "third", "fourth", "fifth", "sixth"];
+        for(var i = 0; i < class_array.length; i++)
         {
-            size_h = c.height = window.innerHeight/3.0;
+            var first = document.createElement("div");
+            first.setAttribute("class", class_array[i]);
+            first.setAttribute("id", id_array[i]);
+            document.getElementsByClassName("topPart")[0].appendChild(first);
         }
-        size_w = c.width = window.innerWidth;
-        size_h_global = size_h;
-        size_w_global = size_w_global;
-    }*/
+        
+    }
     
 }
     
@@ -184,19 +166,19 @@ class color
 {
     constructor()
     {
-        this.colors = [[23, 87, 171], [170, 100, 170], ];
+        this.colors = [[245, 20, 20], [245, 177, 20], [95, 245, 20], [20, 245, 196], [20, 155, 245], [178, 20, 245], [245, 20, 163]];
         this.current_color = "rgba(23, 87, 171, 0.9)";
         this.current_index = 0;
         this.pointer = 0.0;
-        this.max_pointer = 500.0;
+        this.max_pointer = 50.0;
         this.update_color = function()
         {
             var next_index = (this.current_index + 1)%this.colors.length
             if(this.pointer < this.max_pointer)
             {
-                var r = this.colors[this.current_index][0]*this.pointer/this.max_pointer + this.colors[next_index][0]*(1 - this.pointer/this.max_pointer);
-                var g = this.colors[this.current_index][1]*this.pointer/this.max_pointer + this.colors[next_index][1]*(1 - this.pointer/this.max_pointer);
-                var b = this.colors[this.current_index][2]*this.pointer/this.max_pointer + this.colors[next_index][2]*(1 - this.pointer/this.max_pointer);
+                var r = this.colors[this.current_index][0]*(1 - this.pointer/this.max_pointer) + this.colors[next_index][0]*this.pointer/this.max_pointer;
+                var g = this.colors[this.current_index][1]*(1 - this.pointer/this.max_pointer) + this.colors[next_index][1]*this.pointer/this.max_pointer;
+                var b = this.colors[this.current_index][2]*(1 - this.pointer/this.max_pointer) + this.colors[next_index][2]*this.pointer/this.max_pointer;
                 this.current_color = "rgba(" + r + ", " + g + ", " + b  + ", 0.9)";
                 this.pointer = this.pointer + 1;
             }
