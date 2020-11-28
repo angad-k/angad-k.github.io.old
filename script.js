@@ -97,6 +97,29 @@ function setupCanvas(){
         //main animation loop
         make_frame(ctx, c);
     }
+    /* new des
+    if(false)
+    {
+        //this removes the floating orb thingies
+        document.getElementById("first").remove();
+        document.getElementById("second").remove();
+        document.getElementById("third").remove();
+        document.getElementById("fourth").remove();
+        document.getElementById("fifth").remove();
+        document.getElementById("sixth").remove();
+
+        //canvas setup
+        var c = document.createElement('canvas'),        
+        ctx = c.getContext('2d'),
+        size_h = c.height = window.innerHeight;
+        if(is_mobile)
+        {
+            size_h = c.height = window.innerHeight/3.0;
+        }
+        size_w = c.width = window.innerWidth;
+        size_h_global = size_h;
+        size_w_global = size_w_global;
+    }*/
     
 }
     
@@ -120,12 +143,14 @@ class node
     }
 }
 
+var color_global = "rgba(23, 87, 171, 0.9)";
+
 //this will plot a line
 function plot_node(node, ctx)
 {
     ctx.beginPath();
     //ctx.fillStyle = "#003d66";
-    ctx.fillStyle = "rgba(23, 87, 171, 0.9)";
+    ctx.fillStyle = color_global;
     ctx.arc(node.x, node.y, 2.5, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.fill();
@@ -137,7 +162,7 @@ function plot_line(node1, node2, ctx)
     ctx.beginPath();
     ctx.moveTo(node1.x, node1.y);
     ctx.lineTo(node2.x, node2.y);
-    ctx.strokeStyle = "rgba(23, 87, 171, 0.9)";
+    ctx.strokeStyle = color_global;
     ctx.stroke();
 }
 
@@ -155,14 +180,46 @@ function update_node(node, ctx)
     }
 }
 
+class color
+{
+    constructor()
+    {
+        this.colors = [[23, 87, 171], [170, 100, 170], ];
+        this.current_color = "rgba(23, 87, 171, 0.9)";
+        this.current_index = 0;
+        this.pointer = 0.0;
+        this.max_pointer = 500.0;
+        this.update_color = function()
+        {
+            var next_index = (this.current_index + 1)%this.colors.length
+            if(this.pointer < this.max_pointer)
+            {
+                var r = this.colors[this.current_index][0]*this.pointer/this.max_pointer + this.colors[next_index][0]*(1 - this.pointer/this.max_pointer);
+                var g = this.colors[this.current_index][1]*this.pointer/this.max_pointer + this.colors[next_index][1]*(1 - this.pointer/this.max_pointer);
+                var b = this.colors[this.current_index][2]*this.pointer/this.max_pointer + this.colors[next_index][2]*(1 - this.pointer/this.max_pointer);
+                this.current_color = "rgba(" + r + ", " + g + ", " + b  + ", 0.9)";
+                this.pointer = this.pointer + 1;
+            }
+            else
+            {
+                this.pointer = 0;
+                this.current_index = next_index;
+            }
+        }
+    }
+}
+
 
 
 function make_frame(ctx, c)
 {
+    color_obj = new color();
     function animate()
     {
+        color_obj.update_color();
+        color_global = color_obj.current_color;
         //ctx.clearRect(0, 0, c.width, c.height);
-        ctx.fillStyle = "rgba(255, 255, 255, 1)";
+        ctx.fillStyle = "rgba(255, 255, 255, 0.99)";
         ctx.fillRect(0, 0, c.width, c.height);  
         
         //this shall move all the nodes
@@ -190,7 +247,6 @@ function make_frame(ctx, c)
         //don't call it a c̶o̶m̶e̶b̶a̶c̶k̶  callback
         requestAnimationFrame(animate);
     };
-
     //start loop
     animate();
 }
