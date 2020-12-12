@@ -1,110 +1,28 @@
 var node_list, adj_matrix, size_h_global, size_w_global, height_top_bound, height_bottom_bound;
 function setupCanvas(){   
 
-    //this will be used to randomly select one of the (two?) cover designs.
-    var category = Math.random();
-    
-    height_top_bound = window.innerHeight/3.0;
-    height_bottom_bound = window.innerHeight*2.0/3.0
-
-    is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    //this background will be selected only on desktop and that too with a probability of 0.5
-    if(category > 0.5)
+    var category = window.localStorage.getItem("i");
+    //console.log(category);
+    if(category == null)
     {
-        //canvas setup
-        var c = document.createElement('canvas'),        
-        ctx = c.getContext('2d'),
-        size_h = c.height = window.innerHeight;
-        if(is_mobile)
-        {
-            size_h = c.height = window.innerHeight/3.0;
-        }
-        size_w = c.width = window.innerWidth;
-        size_h_global = size_h;
-        size_w_global = size_w_global;
-        //grid variables
-        var x_increment = 60.0;
-        var y_increment = 50.0;
-        if(is_mobile)
-        {
-            x_increment = 90;
-            y_increment = 90;
-        }
-        //random initialization of nodes.
-        var nodes = [];
-        new_node = new node(25, 0);
-        nodes.push(new_node);
-        var prob = 0.18;
-        for(var x = 25; x < size_w - 25; x += x_increment)
-        {
-            for(var y = height_top_bound; y < height_bottom_bound - 25.0; y += y_increment)
-            {
-                if(Math.random() < prob)
-                {
-                    new_node = new node(x, y);
-                    nodes.push(new_node);
-                }
-                
-            }
-        }
-        new_node = new node(size_w - 25, 0);
-        nodes.push(new_node);
-
-        //setup of the directed adjacency matrix
-        var adj = new Array(nodes.length);
-        for(var i = 0; i < nodes.length - 1; i++)
-        {
-            var count = 0;
-            var j_array = new Array(nodes.length);
-            for(var j = 1; j <= 2 && i + j < nodes.length; j++)
-            {
-                if(Math.random() > 0.1)
-                {
-                    j_array[i+j] = 1;
-                    count++;
-                }
-            }
-            //this is to ensure graph remains connected
-            if(count == 0)
-            {
-                var j = Math.floor((Math.random()*4 + 1));
-                j_array[i + j] = 1;
-                count++;
-            }
-            //last vertex will be connected to second last one
-            if(i == nodes.length - 2)
-            {
-                j_array[nodes.length - 1] = 1;
-            }
-            adj[i] = j_array;
-        }
-        adj[nodes.length - 1] = [];
-
-        //making these global
-        node_list = nodes;
-        adj_matrix = adj;
-        
-        //main animation loop
-        make_frame(ctx, c);
+        category = 0;
+    }
+    window.localStorage.setItem("i", category==0?1:0);
+    //this background will be selected only on desktop and that too with a probability of 0.5
+    if(category == 0)
+    {
+        setup_graph_scene();
     }
     
-    if(category <= 0.5)
+    if(category == 1)
     {
-        var class_array = ["largeCircle", "smallCircle", "smallCircle", "largeCircle", "largerCircle", "smallCircle"];
-        var id_array = ["first", "second", "third", "fourth", "fifth", "sixth"];
-        for(var i = 0; i < class_array.length; i++)
-        {
-            var first = document.createElement("div");
-            first.setAttribute("class", class_array[i]);
-            first.setAttribute("id", id_array[i]);
-            document.getElementsByClassName("topPart")[0].appendChild(first);
-        }
-        
+        setup_bubbles_scene();
     }
     
 }
-    
+
+var color_global = "rgba(23, 87, 171, 0.9)";
+
 class node
 {
     constructor(x, y)
@@ -125,7 +43,7 @@ class node
     }
 }
 
-var color_global = "rgba(23, 87, 171, 0.9)";
+
 
 //this will plot a line
 function plot_node(node, ctx)
@@ -192,6 +110,104 @@ class color
 }
 
 
+
+function setup_bubbles_scene()
+{
+    var class_array = ["largeCircle", "smallCircle", "smallCircle", "largeCircle", "largerCircle", "smallCircle"];
+        var id_array = ["first", "second", "third", "fourth", "fifth", "sixth"];
+        for(var i = 0; i < class_array.length; i++)
+        {
+            var first = document.createElement("div");
+            first.setAttribute("class", class_array[i]);
+            first.setAttribute("id", id_array[i]);
+            document.getElementsByClassName("topPart")[0].appendChild(first);
+        }
+}
+
+function setup_graph_scene()
+{
+
+    height_top_bound = window.innerHeight/3.0;
+    height_bottom_bound = window.innerHeight*2.0/3.0
+
+    is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    //canvas setup
+    var c = document.createElement('canvas'),        
+    ctx = c.getContext('2d'),
+    size_h = c.height = window.innerHeight;
+    if(is_mobile)
+    {
+        size_h = c.height = window.innerHeight/3.0;
+    }
+    size_w = c.width = window.innerWidth;
+    size_h_global = size_h;
+    size_w_global = size_w_global;
+    //grid variables
+    var x_increment = 60.0;
+    var y_increment = 50.0;
+    if(is_mobile)
+    {
+        x_increment = 90;
+        y_increment = 90;
+    }
+    //random initialization of nodes.
+    var nodes = [];
+    new_node = new node(25, 0);
+    nodes.push(new_node);
+    var prob = 0.18;
+    for(var x = 25; x < size_w - 25; x += x_increment)
+    {
+        for(var y = height_top_bound; y < height_bottom_bound - 25.0; y += y_increment)
+        {
+            if(Math.random() < prob)
+            {
+                new_node = new node(x, y);
+                nodes.push(new_node);
+            }
+            
+        }
+    }
+    new_node = new node(size_w - 25, 0);
+    nodes.push(new_node);
+
+    //setup of the directed adjacency matrix
+    var adj = new Array(nodes.length);
+    for(var i = 0; i < nodes.length - 1; i++)
+    {
+        var count = 0;
+        var j_array = new Array(nodes.length);
+        for(var j = 1; j <= 2 && i + j < nodes.length; j++)
+        {
+            if(Math.random() > 0.1)
+            {
+                j_array[i+j] = 1;
+                count++;
+            }
+        }
+        //this is to ensure graph remains connected
+        if(count == 0)
+        {
+            var j = Math.floor((Math.random()*4 + 1));
+            j_array[i + j] = 1;
+            count++;
+        }
+        //last vertex will be connected to second last one
+        if(i == nodes.length - 2)
+        {
+            j_array[nodes.length - 1] = 1;
+        }
+        adj[i] = j_array;
+    }
+    adj[nodes.length - 1] = [];
+
+    //making these global
+    node_list = nodes;
+    adj_matrix = adj;
+    
+    //main animation loop
+    make_frame(ctx, c);
+}
 
 function make_frame(ctx, c)
 {
