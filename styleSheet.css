@@ -189,6 +189,7 @@ html {
 {
     transition-duration: 0.1s;
     color: rgb(187, 14, 109);
+    cursor: pointer;
 }
 
 .navBanner
