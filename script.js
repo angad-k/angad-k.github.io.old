@@ -1,6 +1,6 @@
 var node_list, adj_matrix, size_h_global, size_w_global, height_top_bound, height_bottom_bound;
 function setupCanvas(){   
-
+    /*
     var category = window.localStorage.getItem("i");
     //console.log(category);
     if(category == null)
@@ -17,8 +17,8 @@ function setupCanvas(){
     if(category == 1)
     {
         setup_bubbles_scene();
-    }
-    
+    }*/
+    setup_graph_scene();
 }
 
 var color_global = "rgba(23, 87, 171, 0.9)";
