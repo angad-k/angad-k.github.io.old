@@ -1,23 +1,5 @@
 var node_list, adj_matrix, size_h_global, size_w_global, height_top_bound, height_bottom_bound;
 function setupCanvas(){   
-    /*
-    var category = window.localStorage.getItem("i");
-    //console.log(category);
-    if(category == null)
-    {
-        category = 0;
-    }
-    window.localStorage.setItem("i", category==0?1:0);
-    //this background will be selected only on desktop and that too with a probability of 0.5
-    if(category == 0)
-    {
-        setup_graph_scene();
-    }
-    
-    if(category == 1)
-    {
-        setup_bubbles_scene();
-    }*/
     setup_graph_scene();
 }
 
