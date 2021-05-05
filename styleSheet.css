@@ -153,6 +153,7 @@ html {
 .cardImage
 {
     max-height: 400px;
+    width : 400px;
 }
 .buttonarray
 {
