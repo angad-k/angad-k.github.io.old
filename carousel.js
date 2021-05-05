@@ -5,11 +5,43 @@ function setupCarousel()
 
     var projects = document.getElementsByClassName("containerCard");
     
-    for(var i = 1; i < projects.length; i++)
+    for(var i = 0; i < projects.length; i++)
     {
         projects[i].style.opacity = "0";
         console.log(projects[i].style.opacity)
         projects[i].style.zIndex = "0";
+        for(var j = 0; j < projects.length; j++)
+        {
+            var dot = document.createElement("div");
+            dot.innerText = "•"
+            dot.className = j
+            dot.style.fontSize = "4rem"
+            if(j!=i)
+            {
+                dot.style.cursor = "pointer"
+                dot.style.opacity = "0.5"
+                dot.onclick = (event) => {
+                    console.log(event.toElement.className)
+                    
+                    time_elapsed = 0;
+                    projects[curproj].style.zIndex = "0";
+                    projects[curproj].style.opacity = "1";
+                    lastproj = curproj;
+                    curproj = parseInt(event.toElement.className);
+                    curproj %= projects.length;
+                    projects[curproj].style.zIndex = "1";
+                    projects[curproj].style.opacity = "0";
+                }
+            }
+            else
+            {
+                dot.style.cursor = "default"
+            }
+            
+            projects[i].getElementsByClassName("dots")[0].appendChild(dot)
+            
+            console.log
+        }
     }
     start = Date.now();
     projects[0].style.zIndex = "1"

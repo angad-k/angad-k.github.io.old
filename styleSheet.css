@@ -92,7 +92,7 @@ html {
 .text-encapsulator
 {
     width: 100%; 
-    height: 100%;
+    height: 90%;
     display: flex;
     align-items: center;
     text-align: left;
@@ -141,6 +141,15 @@ html {
     background: #219ebc;
     box-shadow:  5px 5px 19px #1a7e96,
                  -5px -5px 19px #28bee2;
+}
+.dots
+{
+    display: flex;
+}
+.dot
+{
+    font-size: 1 rem;
+    color: #023047;
 }
 .icon
 {
