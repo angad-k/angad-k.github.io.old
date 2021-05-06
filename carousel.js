@@ -13,7 +13,7 @@ function setupCarousel()
         for(var j = 0; j < projects.length; j++)
         {
             var dot = document.createElement("div");
-            dot.innerText = "•"
+            dot.style = "width: 20px; height: 20px; background: white; border-radius: 50%; margin: 10px"
             dot.className = j
             dot.style.fontSize = "4rem"
             if(j!=i)
