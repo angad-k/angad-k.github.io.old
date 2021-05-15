@@ -1,7 +1,6 @@
 html {
     scroll-behavior: smooth;
   }
-
 .firstBanner
 {
     position: absolute;
@@ -25,14 +24,13 @@ html {
 .down
 {
     
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 50px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;;
+    font-size: 35px;
     text-align: center;
     width: 100%;
    
     
 }
-
 #decoration_remover
 {
     text-decoration: none;
@@ -61,76 +59,40 @@ html {
     position: absolute;
     top: 100%;
     width: 100%;
+    min-height: 100%;
     left: 0%;
-    background-color: #14213D;
-    background-color: #14213D;
+    background-color: #219ebc;
+    color: white;
     z-index: 1;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-}
-.infoBanner
-{
-    width: 100%;
-    text-align: center;
-    font-size: 5vh;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 25px;
-}
-.parent
-{
-    display: flex;  
-    margin: 20px;
-    width: 80%;
-    margin-left: 10%;
-    align-content: top;
-    align-items: center;
-    flex-direction: column;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-.child
+.containerCard
 {
-    padding: 20px;
-    margin: 10px;   
-    width: 100%;
-    background-color: #FCA311;
-    flex-grow: 1;
-    position: relative;   
-    border: #ffffff;
-    border-radius: 10px;
+    position: absolute;
+    top: 5%;
+    width: 80%;
+    min-height: 90%;
+    left: 10%;
+    background-color: #219ebc;
+    color: white;
+    z-index: 2;
     display: flex;
-    flex-direction: row;
-    color: #ffffff;
-    font-family: 'IBM Plex Sans', sans-serif;
-    justify-content: space-between;
-    align-content: center;
-}
-.cardText
-{
-    font-family: 'Roboto', sans-serif;
-    font-size: 3.5vh;
-    color: #ffffff;
-    z-index: 50;
-    flex-grow: 1;
-    text-decoration: none;
-    text-align: left;
-}
-.cardImage
-{
-    width: 100px;
-    text-align: right;
-}
-.child:hover
-{
-    transition-duration: 0.3s;
-    background-color: #272727;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 58px;
+    background: #219ebc;
+    box-shadow:  19px 19px 50px #197a91,
+             -19px -19px 50px #29c2e7;
 }
 .text-encapsulator
 {
     width: 100%; 
-    height: 100%;
+    height: 90%;
     display: flex;
     align-items: center;
     text-align: left;
@@ -138,40 +100,118 @@ html {
     text-decoration: none;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
+
+.project
+{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    margin: 20px;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.projectDeets
+{
+    flex-grow: 1;
+    align-self: start;
+    width: 55%;
+    min-width: 500px;
+    margin-left: 4%;
+}
+.projectHeading
+{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 3rem;
+}
+.projectDesc
+{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 1.5rem;
+}
+.projectButton
+{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 14px;
+    margin-top: 30px;
+    background: #219ebc;
+    box-shadow:  5px 5px 19px #1a7e96,
+                 -5px -5px 19px #28bee2;
+}
+.dots
+{
+    display: flex;
+}
+.icon
+{
+    flex-grow: 1;
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardImage
+{
+    max-height: 400px;
+    width : 400px;
+}
+.buttonarray
+{
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.btn-text-encapsulator
+{
+    color: white;
+    text-decoration: none;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+.btn-text-encapsulator:hover
+{
+    transition-duration: 0.3s;
+    color: #023047;
+    cursor: pointer;
+}
 @media only screen and (orientation: portrait)
 {
     .text-encapsulator
     {
         font-size: 40px;
     }
-    .cardImage
-    {
-        width: 120px;
-    }
     .rest
     {
         min-height: 100%;
     }
-    .contactme
+    .containerCard
     {
-        height: 7%;
+        width: 90%;
+        left: 5%;
     }
-    .parent
+    .projectDeets
     {
-        position: absolute;
-        top: 5%;
-        min-height: 90%;
+        margin-left: 40px;
+        margin-right: 40px;
     }
-}
-.contactme
-{
-    display: flex;
-    width: 100%;
-    height: 7.5vh;
-    background-color: #ffffff;
-    align-items: center;
-    align-content: center;
-    flex-wrap: nowrap;
+    .projectHeading
+    {
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        font-size: 5rem;
+    }
+    .projectDesc
+    {
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        font-size: 3rem;
+    }
+    .projectButton
+    {
+        font-family: "Trebuchet MS", Helvetica, sans-serif;
+        font-size: 3rem;
+    }
 }
 .icons
 {
@@ -179,7 +219,6 @@ html {
     background-color: #ffffff;
 
 }
-
 .nav-text-encapsulator
 {
     width: 100%; 
@@ -191,13 +230,14 @@ html {
     text-decoration: none;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
-
 .nav-text-encapsulator:hover
 {
     transition-duration: 0.1s;
     color: rgb(187, 14, 109);
     cursor: pointer;
 }
+
+
 
 .navBanner
 {
@@ -206,13 +246,13 @@ html {
     align-items: center;
     justify-content: center;
     background-color: #272727;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     left: 0;
     margin: 0;
+    z-index: 5;
 }
-
 .navItem
 {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -223,16 +263,11 @@ html {
     padding-bottom: 10px;
     color: rgb(209, 224, 230);
 }
-
-#firstItem
-{
-    text-align: left;
-}
-#secondItem
-{
-    text-align: center;
-}
-#thirdItem
-{
-    text-align: right;
+.triangle-bottom {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 15px 0 15px;
+    border-color: #000000 transparent transparent transparent;
 }
