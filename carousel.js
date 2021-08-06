@@ -18,20 +18,8 @@ function setupCarousel()
             dot.style.fontSize = "4rem"
             if(j!=i)
             {
-                dot.style.cursor = "pointer"
+                dot.style.cursor = "default"
                 dot.style.opacity = "0.5"
-                dot.onclick = (event) => {
-                    console.log(event.toElement.className)
-                    
-                    time_elapsed = 0;
-                    projects[curproj].style.zIndex = "0";
-                    projects[curproj].style.opacity = "1";
-                    lastproj = curproj;
-                    curproj = parseInt(event.toElement.className);
-                    curproj %= projects.length;
-                    projects[curproj].style.zIndex = "1";
-                    projects[curproj].style.opacity = "0";
-                }
             }
             else
             {
