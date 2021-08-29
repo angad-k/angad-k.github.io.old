@@ -28,7 +28,7 @@
                 <a href = "./Resume.pdf"  class = 'nav-text-encapsulator'>Resume</a>
             </div>
             <div class = 'navItem'>
-                <a href = "#projectsanddeets"  class = 'nav-text-encapsulator'>Projects</a>
+                <a href = "#projects"  class = 'nav-text-encapsulator'>Projects</a>
             </div>
         </div> 
         <div class = "topPart">
@@ -39,80 +39,143 @@
                 <div id = "yahaNaamAyega">
                     I'm Angad<span id = "dot">.</span>
                 </div>
-                <div class = down><a href = "#projectsanddeets" id = "decoration_remover"><div class = "triangle-bottom"></div></a></div>
+                <div class = down><a href = "#projects" id = "decoration_remover"><div class = "triangle-bottom"></div></a></div>
             </div>
         </div>
         <div class="rest">
-            <a name = "projectsanddeets" style="position: absolute; top: -2.5%;"></a>
-            <div class = "containerCard">
-                <div class = "project">
-                    <div class = "icon">
-                        <img src="images/OutrunChase.png" class = "cardImage">
+            <div id= "projectsHeading">
+                Projects
+            </div>
+            <svg width="100%" height="12">
+                <rect x="10%" y="10" width="80%" height="2"
+                style="fill:#000000;stroke-width:0;fill-opacity:1;stroke-opacity:0.9" />
+            </svg>
+            <a name = "projects" style="position: absolute; top: -2.5%;"></a>
+            <div class = "projects">
+                <div class = "projectsflex">
+                    <div class="projectCard" onclick="window.location='https://github.com/Attendo-App/Attendo';">
+                        <div class="projectHeading">
+                            Attendo
+                        </div>
+                        <svg width="100%" height="10">
+                            <rect class = "underline" x="10%" y="8" width="80%" height="10"
+                            style="fill:#000000;stroke-width:0;fill-opacity:1;stroke-opacity:0.9" />
+                        </svg>
+                        <img class="projectIcon invert" src="images\icon-white.png">
+                        <div class="projectDescription">
+                            Attendo is an Android app developed with the Flutter framework with the aim to streamline the attendance taking procedure in classrooms. 
+                            It was developed as a course project for the course CSN - 291 (OOAD).
+                        </div>
+                        <div class = "techStack">
+                            <div class="tech">
+                                Flutter
+                            </div>
+                            <div class="tech">
+                                Network Service Discovery
+                            </div>
+                            <div class="tech">
+                                Firebase
+                            </div>
+                            <div class="tech">
+                                Socket programming
+                            </div>
+                        </div>
                     </div>
-                    <div class = "projectDeets">
-                        <h1 class = "projectHeading">Outrun Chase</h1>
-                        <p class = "projectDesc">Outrun chase is an artistic, hyper-casual multiplayer game developed in the Godot engine which allows both LAN and internet multiplayer.
+                    <div class="projectCard" onclick="window.location='https://www.youtube.com/watch?v=wKX5zSucAck&t=26s';">
+                        <div class="projectHeading">
+                            Outrun Chase
+                        </div>
+                        <svg width="100%" height="10">
+                            <rect class = "underline" x="10%" y="8" width="80%" height="10"
+                            style="fill:#000000;stroke-width:0;fill-opacity:1;stroke-opacity:0.9" />
+                        </svg>
+                        <img class="projectIcon invert" src="images\OutrunChase.png">
+                        <div class="projectDescription">
+                            Outrun chase is an artistic, hyper-casual multiplayer game developed in the Godot engine which allows both LAN and internet multiplayer.
                             We started development on it as a Hackathon project but continued work on it even after that.
-                        </p>
-                        <div class = "buttonarray">
-                            <span class = "projectButton"><a href = "https://devfolio.co/submissions/outrun-chase" class = "btn-text-encapsulator">Devfolio</a></span>
-                            <span class = "projectButton"><a href = "https://www.youtube.com/watch?v=5Tt7xaWk7xc" class = "btn-text-encapsulator">Trailer</a></span>
-                            <span class = "projectButton"><a href = "https://www.youtube.com/watch?v=wKX5zSucAck&t=26s" class = "btn-text-encapsulator">Demo</a></span>
+                        </div>
+                        <div class = "techStack">
+                            <div class="tech">
+                                Godot
+                            </div>
+                            <div class="tech">
+                                nodeJS
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projectCard" onclick="window.location='https://github.com/sdslabs/Rootex';">
+                        <div class="projectHeading">
+                            Rootex
+                        </div>
+                        <svg width="100%" height="10">
+                            <rect class = "underline" x="10%" y="8" width="80%" height="10"
+                            style="fill:#000000;stroke-width:0;fill-opacity:1;stroke-opacity:0.9" />
+                        </svg>
+                        <img class="projectIcon" src="https://rootex.readthedocs.io/en/latest/_static/rootex.png">
+                        <div class="projectDescription">
+                            Rootex is an advanced C++ 3D game engine powering an in-production game yet to be announced. It is being developed by SDSLabs, a student technical group that I am a part of.
+                        </div>
+                        <div class = "techStack">
+                            <div class="tech">
+                                C++
+                            </div>
+                            <div class="tech">
+                                ECS architecture
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projectCard">
+                        <div class="projectHeading">
+                            E-ID card admin portal
+                        </div>
+                        <svg width="100%" height="10">
+                            <rect class = "underline" x="10%" y="8" width="80%" height="10"
+                            style="fill:#000000;stroke-width:0;fill-opacity:1;stroke-opacity:0.9" />
+                        </svg>
+                        <img class="projectIcon" src="images\idcard.png" style="width : 300px;">
+                        <div class="projectDescription">
+                            Developed the frontend for IITR's E-ID card portal's admin side.
+                        </div>
+                        <div class = "techStack">
+                            <div class="tech">
+                                ReactJS
+                            </div>
+                            <div class="tech">
+                                Redux
+                            </div>
+                            <div class="tech">
+                                AG-Grid
+                            </div>
+                        </div>
+                    </div>
+                    <div class="projectCard" onclick="window.location='https://github.com/mdg-soc-19/canteen-app'">
+                        <div class="projectHeading">
+                            Chaaponator
+                        </div>
+                        <svg width="100%" height="10">
+                            <rect class = "underline" x="10%" y="8" width="80%" height="10"
+                            style="fill:#000000;stroke-width:0;fill-opacity:1;stroke-opacity:0.9" />
+                        </svg>
+                        <img class="projectIcon invert" src="images/chaponator.png">
+                        <div class="projectDescription">
+                            Chaponator is a basic Android app coded in Java which was my first project ever and was made in MDG's Season Of Code.
+                        </div>
+                        <div class = "techStack">
+                            <div class="tech">
+                                Android
+                            </div>
+                            <div class="tech">
+                                Java
+                            </div>
+                            <div class="tech">
+                                Firebase
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class = "dots"></div>
             </div>
-            <div class = "containerCard">
-                <div class = "project">
-                    <div class = "icon">
-                        <img src="images/icon-white.png" class = "cardImage">
-                    </div>
-                    <div class = "projectDeets">
-                        <h1 class = "projectHeading">Attendo</h1>
-                        <p class = "projectDesc">Attendo is an Android app developed with the Flutter framework with the aim to streamline the attendance taking procedure in classrooms. 
-                            It employs Network Service Discovery and Sockets to achieve this purpose. 
-                            It was developed as a course project for the course CSN - 291 (OOAD).</p>
-                        <div class = "buttonarray">
-                            <span class = "projectButton"><a href = "https://github.com/Attendo-App/Attendo" class = "btn-text-encapsulator">Repository</a></span>
-                            <span class = "projectButton"><a href = "https://attendo-app.github.io/Documents/Attendo_design_doc.pdf" class = "btn-text-encapsulator">Design Document</a></span>
-                            <span class = "projectButton"><a href = "https://attendo-app.github.io/Documents/Attendo.pdf" class = "btn-text-encapsulator">PPT</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class = "dots"></div>
-            </div>
-            <div class = "containerCard">
-                <div class = "project">
-                    <div class = "icon">
-                        <img src="https://rootex.readthedocs.io/en/latest/_static/rootex.png" class = "cardImage">
-                    </div>
-                    <div class = "projectDeets">
-                        <h1 class = "projectHeading">Rootex</h1>
-                        <p class = "projectDesc">Rootex is an advanced C++ 3D game engine powering an in-production game yet to be announced. It is being developed by SDSLabs, a student technical group that I am a part of.</p>
-                        <div class = "buttonarray">
-                            <span class = "projectButton"><a href = "https://github.com/sdslabs/Rootex" class = "btn-text-encapsulator">Repository</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class = "dots"></div>
-            </div>
-            <div class = "containerCard">
-                <div class = "project">
-                    <div class = "icon">
-                        <img src="images/chaponator.png" class = "cardImage">
-                    </div>
-                    <div class = "projectDeets">
-                        <h1 class = "projectHeading">Chaponator</h1>
-                        <p class = "projectDesc">Chaponator is a basic Android app coded in Java which was my first project ever and was made in MDG's Season Of Code.</p>
-                        <div class = "buttonarray">
-                            <span class = "projectButton"><a href = "https://github.com/mdg-soc-19/canteen-app" class = "btn-text-encapsulator">Client Side Repository</a></span>
-                            <span class = "projectButton"><a href = "https://github.com/angad-k/Canteen-App-Merchant-Side" class = "btn-text-encapsulator">Merchant App Repository</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class = "dots"></div>
-            </div>
+            <svg id = "curve" height="100%" width="100%" id="svg" viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><path d="M 0,400 C 0,400 0,200 0,200 C 64.1307692307692,218.33333333333334 128.2615384615384,236.66666666666669 213,225 C 297.7384615384616,213.33333333333331 403.0846153846154,171.66666666666666 493,168 C 582.9153846153846,164.33333333333334 657.4000000000001,198.66666666666666 736,227 C 814.5999999999999,255.33333333333334 897.3153846153846,277.6666666666667 980,271 C 1062.6846153846154,264.3333333333333 1145.3384615384616,228.66666666666666 1222,212 C 1298.6615384615384,195.33333333333334 1369.3307692307692,197.66666666666669 1440,200 C 1440,200 1440,400 1440,400 Z" stroke="none" stroke-width="0" fill="#fcb900ff" class="transition-all duration-300 ease-in-out delay-150"></path></svg>
+            
         </div>
     </div>
         <script>
