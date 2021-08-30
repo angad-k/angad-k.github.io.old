@@ -254,3 +254,48 @@ html {
 	border-width: 20px 15px 0 15px;
 	border-color: #000000 transparent transparent transparent;
 }
+#hi {
+	animation: appear 2s;
+}
+#yahaNaamAyega {
+	animation: appear 2s;
+	animation-delay: 0.5s;
+	animation-fill-mode: backwards;
+}
+#decoration_remover {
+	animation: appear 1s;
+	animation-delay: 2.3s;
+	animation-fill-mode: backwards;
+}
+#dot {
+	animation: dotanimation 5s;
+	animation-delay: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes dotanimation {
+	20% {
+		color: #f73b3b;
+	}
+	40% {
+		color: #d17d2f;
+	}
+	60% {
+		color: #279c2d;
+	}
+	80% {
+		color: #278ea8;
+	}
+	1000% {
+		color: #000000;
+	}
+}
