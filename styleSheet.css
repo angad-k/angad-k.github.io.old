@@ -128,6 +128,10 @@ html {
 	filter: invert(1);
 }
 
+.makewhite {
+	filter: brightness(0) invert(1);
+}
+
 .projectDescription {
 	color: #ffffff;
 	width: 100%;
