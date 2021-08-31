@@ -45,17 +45,17 @@ html {
 
 #projectsHeading {
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	margin-top: 20;
+	margin-top: 60px;
 	font-size: 45px;
 	text-align: center;
 	width: 100%;
-	color: #000000;
+	color: #292b38;
 }
 
 .rest {
 	width: 100%;
 	min-height: 100%;
-	background-color: #ffffff;
+	background-color: #b4adea;
 	color: white;
 	z-index: 1;
 	position: absolute;
@@ -65,6 +65,8 @@ html {
 	flex-direction: column;
 }
 .projects {
+	margin-top: 10px;
+	margin-bottom: 20px;
 	min-height: 100%;
 	width: 100%;
 	flex-grow: 1;
@@ -83,24 +85,23 @@ html {
 
 .projectCard {
 	flex-grow: 1;
-	border-radius: 20px;
 	min-width: 400px;
 	max-width: 500px;
 	padding: 20px;
-	border-color: #000000;
+	border-color: #4e5166;
 	border-style: solid;
 	border-width: 2px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: start;
 	align-items: center;
-	background-color: #ffffff;
+	background-color: #4e5166;
 	transition-duration: 0.5s;
-	transition: box-shadow 0.5s;
+	transition: box-shadow 0.5s border-color 0.5s;
 }
 
 .projectCard:hover {
-	border-color: rgb(187, 14, 109);
+	border-color: #ffffff;
 	transition-duration: 0.5s;
 	cursor: pointer;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -113,7 +114,7 @@ html {
 	font-size: 30px;
 	text-align: center;
 	width: 100%;
-	color: #000000;
+	color: #ffffff;
 	margin-bottom: 10px;
 }
 
@@ -128,11 +129,11 @@ html {
 }
 
 .projectDescription {
-	color: #000000;
+	color: #ffffff;
 	width: 100%;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	margin-top: 10px;
-	font-size: 20px;
+	font-size: 18px;
 	text-align: left;
 }
 
@@ -147,10 +148,11 @@ html {
 }
 
 .tech {
-	color: #000000;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	color: #ffffff;
+	font-family: "Raleway", sans-serif;
+	font-size: 12px;
 	padding: 10px;
-	border-color: #000000;
+	border-color: #ffffff;
 	border-radius: 10px;
 	border-width: 2px;
 	border-style: solid;
@@ -298,4 +300,24 @@ html {
 	1000% {
 		color: #000000;
 	}
+}
+
+.custom-shape-divider-top-1630408685 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	line-height: 0;
+}
+
+.custom-shape-divider-top-1630408685 svg {
+	position: relative;
+	display: block;
+	width: calc(145% + 1.3px);
+	height: 87px;
+}
+
+.custom-shape-divider-top-1630408685 .shape-fill {
+	fill: #ffffff;
 }
